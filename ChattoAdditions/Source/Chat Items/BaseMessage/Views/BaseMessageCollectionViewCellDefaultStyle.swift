@@ -121,15 +121,15 @@ open class BaseMessageCollectionViewCellDefaultStyle: BaseMessageCollectionViewC
     private lazy var dateFont: UIFont = self.dateTextStyle.font()
     private lazy var dateFontColor: UIColor = self.dateTextStyle.color()
 
-    private lazy var dateStringAttributes: [String : AnyObject] = {
+    private lazy var dateStringAttributes: [NSAttributedStringKey : Any] = {
         return [
-            NSFontAttributeName: self.dateFont,
-            NSForegroundColorAttributeName: self.dateFontColor
+            .font: dateFont,
+            .foregroundColor: dateFontColor
         ]
     }()
 
     open func attributedStringForDate(_ date: String) -> NSAttributedString {
-        return NSAttributedString(string: date, attributes: self.dateStringAttributes)
+        return NSAttributedString(string: date, attributes: dateStringAttributes)
     }
 
     open func borderImage(viewModel: MessageViewModelProtocol) -> UIImage? {

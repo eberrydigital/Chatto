@@ -43,10 +43,10 @@ public protocol BaseMessageInteractionHandlerProtocol {
 
 open class BaseMessagePresenter<BubbleViewT, ViewModelBuilderT, InteractionHandlerT>: BaseChatItemPresenter<BaseMessageCollectionViewCell<BubbleViewT>> where
     ViewModelBuilderT: ViewModelBuilderProtocol,
-    ViewModelBuilderT.ViewModelT: MessageViewModelProtocol,
     InteractionHandlerT: BaseMessageInteractionHandlerProtocol,
     InteractionHandlerT.ViewModelT == ViewModelBuilderT.ViewModelT,
     BubbleViewT: UIView, BubbleViewT:MaximumLayoutWidthSpecificable, BubbleViewT: BackgroundSizingQueryable {
+
     public typealias CellT = BaseMessageCollectionViewCell<BubbleViewT>
     public typealias ModelT = ViewModelBuilderT.ModelT
     public typealias ViewModelT = ViewModelBuilderT.ViewModelT
