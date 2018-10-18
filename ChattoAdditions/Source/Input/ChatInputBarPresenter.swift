@@ -81,7 +81,12 @@ public class BasicChatInputBarPresenter: NSObject, ChatInputBarPresenter {
     }
 
     fileprivate func firstKeyboardInputItem() -> ChatInputItemProtocol? {
-        return chatInputItems.filter { $0.presentationMode == .keyboard }.first
+        var firstKeyboardInputItem: ChatInputItemProtocol? = nil
+        for inputItem in self.chatInputItems where inputItem.presentationMode == .keyboard {
+            firstKeyboardInputItem = inputItem
+            break
+        }
+        return firstKeyboardInputItem
     }
 
     private var lastKnownKeyboardHeight: CGFloat?
